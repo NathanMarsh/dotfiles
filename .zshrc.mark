@@ -1,0 +1,27 @@
+    export MARKPATH=$HOME/.marks
+    function jump { 
+        cd -P "$MARKPATH/$1" 2>/dev/null || echo "no such mark: $1"
+    }
+    function mark { 
+        if (( $# == 0 )); then
+            MARK=$(basename "$(pwd)")
+        else
+            MARK="$1"
+        fi
+        #if read -q \?"mark $(pwd) as ${MARK}? (y/n) "; then
+        ln -s "$(pwd)" "$MARKPATH/$MARK"
+        #fi
+    }
+    function unmark { 
+        rm -i "$MARKPATH/$1"
+    }
+    function marks {
+        ls -l "$MARKPATH" | sed 's/  / /g' | cut -d' ' -f9- | sed 's/ -/\t-/g' && echo
+    }
+
+    function _completemarks {
+        reply=($(ls $MARKPATH))
+    }
+    compctl -K _completemarks jump
+    compctl -K _completemarks unmark
+

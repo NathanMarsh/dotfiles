@@ -1,0 +1,147 @@
+
+alias less='less -r'
+alias glsync='clear && watch "git pull && git add . && git commit -am Blah && git push"'
+
+alias run-background='TMUX="" tmux -S /tmp/bg new -d "$@"'
+alias list_to_cs='awk -vORS=, "{ print $1 }" | sed "s/,$/\n/"'
+alias connected_ports='lsof -i'
+
+export EDITOR="vi"
+
+#alias jsonpretty="python -mjson.tool"
+
+
+alias gp='git push'
+alias gc='git commit'
+alias gca='git commit -a'
+alias gcm='git commit -m'
+alias gcam='git commit -am'
+alias gits='git status'
+alias gb='git branch'
+
+alias grep='grep --color=always'
+
+#alias no-internet='sg no-internet'
+
+
+function gitdiff {
+    value="vimdiff =(git show HEAD~1:$1) =(git show HEAD:$1)"
+    `$value`
+}
+
+bindkey -M vicmd v edit-command-line
+
+#bindkey -v
+#bindkey '\e[3~' delete-char
+bindkey '^R' history-incremental-search-backward
+
+alias column-csv='column -s "," -t'
+
+function cless {
+    if [ ! -z "$1" ]
+    then 
+        source-highlight -i $1 -o STDOUT --out-format esc | less -r
+    fi
+}
+
+autoload -U edit-command-line
+zle -N edit-command-line
+
+bindkey -M vicmd v edit-command-line
+
+bindkey -v
+
+#function mkcd {
+#    if [ $# = 0 ] 
+#    then 
+#            echo No Folder name given
+#
+#    elif  [ -d $1 ]	
+#    then 
+#                    echo Folder already exists 
+#                    cd $1
+#    else
+##                    echo Creating a new folder
+#                    mkdir  -p $1
+#                    cd $1	
+#    fi
+#}
+
+precmd() {
+}
+
+#PROMPT="[%{$fg[red]%}%n%{$reset_color%}@%{$fg[blue]%}%m:%{$fg_no_bold[yellow]%}%/] %{$reset_color%}%#"
+#RPROMPT="[%{$fg_no_bold[yellow]%}%?%{$reset_color%}]"
+
+
+if test -z "$CUSTOMSHELL"
+then
+  PROMPT="[%{$fg[red]%}%n%{$reset_color%}@%{$fg[blue]%}%m]%{$reset_color%} "
+  RPROMPT="%{$fg_no_bold[yellow]%}%/%{$reset_color%}"
+fi
+
+
+# Uncomment for clock here
+#setopt PROMPT_SUBST
+#PROMPT='%B%F{red}%n@%m%f%F{yellow}[%D{%L:%M:%S}]%f:%F{blue}${${(%):-%~}}%f$ %b'
+#PROMPT="[%{$fg[red]%}%n%{$reset_color%}@%{$fg[blue]%}%m:%{$fg_no_bold[yellow]%}%/]:[%D{%L:%M:%S}] %{$reset_color%}%#"
+#PROMPT="%{$fg[red]%}%n%{$reset_color%}@%{$fg[blue]%}%m%{$fg_no_bold[yellow]%}[%D{%L:%M:%S}] %{$reset_color%}"
+#TMOUT=1
+
+#TRAPALRM() {
+#    zle reset-prompt
+#}
+
+mkcd() {
+  if [ ! -z "$1" ]
+  then
+    echo "Got input $1"
+    if [ -d "$1" ]
+    then
+      echo "Folder already exists"
+      cd "$1"
+    else
+      echo "Creating a new folder $1"
+      mkdir -p "$1"
+      cd "$1"
+    fi
+  else
+    echo "Got no input, creating a temporary directory"
+    tempdir=`mktemp -d`
+    cd "$tempdir"
+  fi 
+    
+}
+
+
+git-temp() {
+tempdir=`mktemp -d`
+echo "$tempdir"
+
+
+/usr/bin/git diff-index --quiet HEAD
+ret=$?
+#echo "Dirt status: $ret"
+
+if [ $ret -eq 0 ]
+then
+ echo "Its clean, proceeding";
+else
+ echo "Its dirty, not proceeding";
+ return
+fi
+
+commit_needed="HEAD"
+if [ ! -z "$1" ]
+then
+  commit_needed="$1"
+fi
+
+echo "Going with $commit_needed"
+
+#git --work-tree "$tempdir" checkout -f HEAD
+git --work-tree "$tempdir" checkout -f "$commit_needed"
+
+cd "$tempdir"
+}
+
