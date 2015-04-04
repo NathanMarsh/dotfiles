@@ -2,7 +2,8 @@
 
 filename="/etc/apt/apt.conf.d/99force-ipv4"
 if [ ! -f "$filename" ]; then
-    cp ./resources/99force-ipv4 "$filename"
+    #sudo cp ./resources/99force-ipv4 "$filename" ##Enable this if ipv6 is a problem
+    :
 fi
 
 wpath="http://mirror.sdunix.com/apache/maven/maven-3/3.2.5/binaries/apache-maven-3.2.5-bin.tar.gz"
