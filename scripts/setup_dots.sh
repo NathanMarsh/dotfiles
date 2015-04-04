@@ -28,6 +28,6 @@ elif [ "$currentshell" == "zsh" ]; then
 fi
 
 #ln -s "$parentdir/.vimrc" ~/.vimrc
-./setup_vim.sh
+#./setup_vim.sh ## Not doing this till script is stable
 ./setup_backup.sh
 
