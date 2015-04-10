@@ -16,7 +16,7 @@ elif [ "$currentshell" == "zsh" ]; then
   else
     echo "$dotfile does not exist"
   fi
-  echo "source $parentdir/.zshrc" > "$dotfile"
+  #echo "source $parentdir/.zshrc" > "$dotfile" ## Removing this since we removed .zshrc
   MARKPATH=$HOME/.marks
   if [[ ! -d $MARKPATH ]]; then
     mkdir $MARKPATH
