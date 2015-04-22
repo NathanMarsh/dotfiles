@@ -28,7 +28,7 @@ servers = (
     address = "irc.twitch.tv";
     chatnet = "Twitch";
     port = "6667";
-    password = "$TWITCH_OAUTH_PASSWORD";
+    password = "$$TWITCH_OAUTH_PASSWORD";
     use_ssl = "no";
     ssl_verify = "no";
     autoconnect = "yes";
@@ -37,7 +37,7 @@ servers = (
     address = "irc.glados.tv";
     chatnet = "Hitbox";
     port = "6667";
-    password = "$HITBOX_PASSWORD";
+    password = "$$HITBOX_PASSWORD";
     use_ssl = "no";
     ssl_verify = "no";
     autoconnect = "yes";
@@ -108,7 +108,12 @@ chatnets = {
   };
   SILC = { type = "SILC"; };
   Ubuntu = { type = "IRC"; };
-  Twitch = { type = "IRC"; };
+  Twitch = {
+    type = "IRC";
+    nick = "$$TWITCH_NICKNAME";
+    username = "$$TWITCH_USERNAME";
+    realname = "$$TWITCH_REALNAME";
+  };
   Hitbox = { type = "IRC"; };
 };
 
@@ -282,9 +287,9 @@ statusbar = {
 };
 settings = {
   core = {
-    real_name = "$REAL_NAME";
-    user_name = "$USERNAME";
-    nick = "$NICKNAME";
+    real_name = "$$REALNAME";
+    user_name = "$$USERNAME";
+    nick = "$$NICKNAME";
   };
   "fe-common/core" = {
     autolog = "yes";
@@ -293,7 +298,7 @@ settings = {
   };
   "fe-text" = { actlist_sort = "refnum"; };
   proxy = {
-    irssiproxy_password = "$IRSSIPROXY_PASSWORD";
+    irssiproxy_password = "$$IRSSIPROXY_PASSWORD";
     irssiproxy_ports = "Twitch=8658 Hitbox=8659";
   };
 };
