@@ -28,19 +28,28 @@ servers = (
     address = "irc.twitch.tv";
     chatnet = "Twitch";
     port = "6667";
-    password = "$$TWITCH_OAUTH_PASSWORD";
+    password = "$_TWITCH_OAUTH_PASSWORD";
     use_ssl = "no";
     ssl_verify = "no";
+    autoconnect = "yes";
+  },
+  {
+    address = "$_SLACK_DOMAIN.irc.slack.com";
+    chatnet = "Slack";
+    port = "6667";
+    password = "$_SLACK_IRC_PASSWORD";
+    use_ssl = "yes";
+    ssl_verify = "yes";
     autoconnect = "yes";
   },
   {
     address = "irc.glados.tv";
     chatnet = "Hitbox";
     port = "6667";
-    password = "$$HITBOX_PASSWORD";
+    password = "$_HITBOX_PASSWORD";
     use_ssl = "no";
     ssl_verify = "no";
-    autoconnect = "yes";
+    autoconnect = "no";
   }
 );
 
@@ -110,9 +119,15 @@ chatnets = {
   Ubuntu = { type = "IRC"; };
   Twitch = {
     type = "IRC";
-    nick = "$$TWITCH_NICKNAME";
-    username = "$$TWITCH_USERNAME";
-    realname = "$$TWITCH_REALNAME";
+    nick = "$_TWITCH_NICKNAME";
+    username = "$_TWITCH_USERNAME";
+    realname = "$_TWITCH_REALNAME";
+  };
+  Slack = {
+    type = "IRC";
+    nick = "$_SLACK_NICKNAME";
+    username = "$_SLACK_USERNAME";
+    realname = "$_SLACK_REALNAME";
   };
   Hitbox = { type = "IRC"; };
 };
@@ -121,7 +136,14 @@ channels = (
   { name = "#irssi"; chatnet = "ircnet"; autojoin = "No"; },
   { name = "silc"; chatnet = "silc"; autojoin = "No"; },
   { name = "#scarra"; chatnet = "Twitch"; autojoin = "yes"; },
-  { name = "#tsm_dyrus"; chatnet = "Twitch"; autojoin = "yes"; }
+  { name = "#tsm_dyrus"; chatnet = "Twitch"; autojoin = "yes"; },
+  { name = "#$_TWITCH_USERNAME"; chatnet = "Twitch"; autojoin = "yes"; },
+  { name = "#voyboy"; chatnet = "Twitch"; autojoin = "yes"; },
+  { name = "#robertxlee"; chatnet = "Twitch"; autojoin = "yes"; },
+  { name = "#cowsep"; chatnet = "Twitch"; autojoin = "yes"; },
+  { name = "#riotgames"; chatnet = "Twitch"; autojoin = "yes"; },
+  { name = "#nicktron"; chatnet = "Twitch"; autojoin = "yes"; },
+  { name = "#saintvicious"; chatnet = "Twitch"; autojoin = "yes"; }
 );
 
 aliases = {
@@ -287,9 +309,9 @@ statusbar = {
 };
 settings = {
   core = {
-    real_name = "$$REALNAME";
-    user_name = "$$USERNAME";
-    nick = "$$NICKNAME";
+    real_name = "$_REALNAME";
+    user_name = "$_USERNAME";
+    nick = "$_NICKNAME";
   };
   "fe-common/core" = {
     autolog = "yes";
@@ -298,7 +320,7 @@ settings = {
   };
   "fe-text" = { actlist_sort = "refnum"; };
   proxy = {
-    irssiproxy_password = "$$IRSSIPROXY_PASSWORD";
+    irssiproxy_password = "$_IRSSIPROXY_PASSWORD";
     irssiproxy_ports = "Twitch=8658 Hitbox=8659";
   };
 };

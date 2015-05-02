@@ -1,0 +1,16 @@
+{
+  "TWITCH_OAUTH_PASSWORD" : null,
+  "HITBOX_PASSWORD" : null,
+  "TWITCH_NICKNAME" : null,
+  "TWITCH_USERNAME" : null,
+  "TWITCH_REALNAME" : null,
+  "REALNAME" : null,
+  "USERNAME" : null,
+  "NICKNAME" : null,
+  "IRSSIPROXY_PASSWORD" : null,
+  "SLACK_DOMAIN" : null,
+  "SLACK_IRC_PASSWORD" : null,
+  "SLACK_NICKNAME" : null,
+  "SLACK_USERNAME" : null,
+  "SLACK_REALNAME" : null
+}
