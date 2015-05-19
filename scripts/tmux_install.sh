@@ -32,4 +32,4 @@ fi
 #echo "Parent directory is $parentdir"
 
 ln -s "$parentdir/.tmux.conf" ~
-
+touch ~/.tmux.local
