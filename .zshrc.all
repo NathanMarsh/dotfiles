@@ -145,3 +145,36 @@ git --work-tree "$tempdir" checkout -f "$commit_needed"
 cd "$tempdir"
 }
 
+alias ls='ls --color=auto'
+
+### Try to fix zshrc up-line-history thing in ubuntu/debian ####
+
+#export TERM=rxvt-unicode
+
+#[[ -z "$terminfo[cuu1]" ]] || bindkey -M viins "$terminfo[cuu1]" vi-up-line-or-history
+#[[ -z "$terminfo[kcuu1]" ]] || bindkey -M viins "$terminfo[kcuu1]" vi-up-line-or-history
+
+[[ -z "$terminfo[cuu1]" ]] || bindkey -M viins "$terminfo[cuu1]" vi-up-line
+[[ -z "$terminfo[kcuu1]" ]] || bindkey -M viins "$terminfo[kcuu1]" vi-up-line
+[[ "$terminfo[kcuu1]" == ""* ]] && bindkey -M viins "${terminfo[kcuu1]/O/[}" vi-up-line
+
+autoload -Uz up-line-or-beginning-search
+autoload -Uz down-line-or-beginning-search
+zle -N up-line-or-beginning-search up-line-or-beginning-search
+zle -N down-line-or-beginning-search down-line-or-beginning-search
+bindkey -v
+bindkey "^[[A" up-line-or-beginning-search
+bindkey "^[[B" down-line-or-beginning-search
+
+[[ -z "$terminfo[kcuu1]" ]] || bindkey -M viins "$terminfo[kcuu1]" vi-up-line-or-history
+[[ -z "$terminfo[kcud1]" ]] || bindkey -M viins "$terminfo[kcud1]" vi-down-line-or-history
+
+# [...] and fixups for ncurses' application mode:
+[[ "$terminfo[kcuu1]" == ""* ]] && bindkey -M viins "${terminfo[kcuu1]/O/[}" vi-up-line-or-history
+[[ "$terminfo[kcud1]" == ""* ]] && bindkey -M viins "${terminfo[kcud1]/O/[}" vi-down-line-or-history
+
+#http://comments.gmane.org/gmane.comp.shells.zsh.user/9835
+#http://comments.gmane.org/gmane.comp.shells.zsh.user/9836
+#http://blog.gmane.org/gmane.comp.shells.zsh.user/month=20050101
+#http://serverfault.com/questions/359277/linux-terminal-change-cursor-position-after-up-arrow-key-press
+#### ###
