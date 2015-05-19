@@ -250,7 +250,7 @@ statusbar = {
       # list of items in statusbar in the display order
       items = {
         barstart = { priority = "100"; };
-        time = { };
+        #time = { }; #Commenting it out removes the bar
         user = { };
         window = { };
         window_empty = { };
