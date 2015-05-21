@@ -135,15 +135,15 @@ chatnets = {
 channels = (
   { name = "#irssi"; chatnet = "ircnet"; autojoin = "No"; },
   { name = "silc"; chatnet = "silc"; autojoin = "No"; },
-  { name = "#scarra"; chatnet = "Twitch"; autojoin = "yes"; },
-  { name = "#tsm_dyrus"; chatnet = "Twitch"; autojoin = "yes"; },
-  { name = "#$_TWITCH_USERNAME"; chatnet = "Twitch"; autojoin = "yes"; },
-  { name = "#voyboy"; chatnet = "Twitch"; autojoin = "yes"; },
-  { name = "#robertxlee"; chatnet = "Twitch"; autojoin = "yes"; },
-  { name = "#cowsep"; chatnet = "Twitch"; autojoin = "yes"; },
-  { name = "#riotgames"; chatnet = "Twitch"; autojoin = "yes"; },
-  { name = "#nicktron"; chatnet = "Twitch"; autojoin = "yes"; },
-  { name = "#saintvicious"; chatnet = "Twitch"; autojoin = "yes"; }
+  { name = "#scarra"; chatnet = "Twitch"; autojoin = "$_TWITCH_CHANNELS_AUTOCONNECT"; },
+  { name = "#tsm_dyrus"; chatnet = "Twitch"; autojoin = "$_TWITCH_CHANNELS_AUTOCONNECT"; },
+  { name = "#$_TWITCH_USERNAME"; chatnet = "Twitch"; autojoin = "$_TWITCH_CHANNELS_AUTOCONNECT"; },
+  { name = "#voyboy"; chatnet = "Twitch"; autojoin = "$_TWITCH_CHANNELS_AUTOCONNECT"; },
+  { name = "#robertxlee"; chatnet = "Twitch"; autojoin = "$_TWITCH_CHANNELS_AUTOCONNECT"; },
+  { name = "#cowsep"; chatnet = "Twitch"; autojoin = "$_TWITCH_CHANNELS_AUTOCONNECT"; },
+  { name = "#riotgames"; chatnet = "Twitch"; autojoin = "$_TWITCH_CHANNELS_AUTOCONNECT"; },
+  { name = "#nicktron"; chatnet = "Twitch"; autojoin = "$_TWITCH_CHANNELS_AUTOCONNECT
+  { name = "#saintvicious"; chatnet = "Twitch"; autojoin = "$_TWITCH_CHANNELS_AUTOCONNECT"; }
 );
 
 aliases = {
