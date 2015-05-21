@@ -142,7 +142,7 @@ channels = (
   { name = "#robertxlee"; chatnet = "Twitch"; autojoin = "$_TWITCH_CHANNELS_AUTOCONNECT"; },
   { name = "#cowsep"; chatnet = "Twitch"; autojoin = "$_TWITCH_CHANNELS_AUTOCONNECT"; },
   { name = "#riotgames"; chatnet = "Twitch"; autojoin = "$_TWITCH_CHANNELS_AUTOCONNECT"; },
-  { name = "#nicktron"; chatnet = "Twitch"; autojoin = "$_TWITCH_CHANNELS_AUTOCONNECT
+  { name = "#nicktron"; chatnet = "Twitch"; autojoin = "$_TWITCH_CHANNELS_AUTOCONNECT"; },
   { name = "#saintvicious"; chatnet = "Twitch"; autojoin = "$_TWITCH_CHANNELS_AUTOCONNECT"; }
 );
 
