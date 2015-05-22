@@ -178,3 +178,7 @@ bindkey "^[[B" down-line-or-beginning-search
 #http://blog.gmane.org/gmane.comp.shells.zsh.user/month=20050101
 #http://serverfault.com/questions/359277/linux-terminal-change-cursor-position-after-up-arrow-key-press
 #### ###
+
+
+#export TZ=US/Pacific
+#export TZ="/usr/share/zoneinfo/US/Pacific"
