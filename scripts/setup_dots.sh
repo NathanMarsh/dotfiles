@@ -28,8 +28,14 @@ elif [ "$currentshell" == "zsh" ]; then
 fi
 
 ## git stuff ##
+
+GITCONFIGPATH="/home/$USER/.gitconfig"
+if [[ -f "$GITCONFIGPATH" ]]; then
+  mv "$GITCONFIGPATH" "$GITCONFIGPATH.old.$RANDOM"
+fi
+
 touch "$HOME/.gitconfig.local"
-ln -s "$parentdir/.gitconfig" "$HOME"
+ln -fs "$parentdir/.gitconfig" "$HOME"
 ## end git stuff ##
 #ln -s "$parentdir/.vimrc" ~/.vimrc
 #./setup_vim.sh ## Not doing this till script is stable
