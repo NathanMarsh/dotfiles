@@ -3,10 +3,10 @@
         #autocrlf = true #Should be set in windows
 [push]
         #default = simple ## Git 1.7.11+
-        #default = current ## Git 1.7.10- ## Not as safe as simple, but its fine
+        default = current ## Git 1.7.10- ## Not as safe as simple, but its fine
 [pull]
         #default = simple ## Git 1.7.11+
-        #default = current ## Git 1.7.10- ## Not as safe as simple, but its fine
+        default = current ## Git 1.7.10- ## Not as safe as simple, but its fine
 [alias]
         dag = log --graph --format='format:%C(yellow)%h%C(reset) %C(blue)\"%an\" <%ae>%C(reset) %C(magenta)%cr%C(reset)%C(auto)%d%C(reset)%n%s' --date-order
         c = commit
