@@ -1,0 +1,4 @@
+Creating the symbolic links: execute from the {Sublime}/Packages directory
+
+Windows: mklink /D .\User C:\Users\[username]\Dropbox\Sublime\Packages\User
+Linux/OSX: ln -s {DropboxRoot}/Sublime/Packages/User ./User

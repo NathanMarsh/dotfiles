@@ -34,8 +34,8 @@ if [[ -f "$GITCONFIGPATH" ]]; then
   mv "$GITCONFIGPATH" "$GITCONFIGPATH.old.$RANDOM"
 fi
 
-touch "$HOME/.gitconfig.local"
-ln -fs "$parentdir/.gitconfig" "$HOME"
+#touch "$HOME/.gitconfig.local"
+#ln -fs "$parentdir/.gitconfig" "$HOME"
 ## end git stuff ##
 #ln -s "$parentdir/.vimrc" ~/.vimrc
 #./setup_vim.sh ## Not doing this till script is stable

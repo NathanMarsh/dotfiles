@@ -28,5 +28,5 @@
         #pager = less -FMRiX #The X decides whether or not the pager clears after hitting q (check)
         #pager = less -+$LESS -R ## The lines displayed on the screen get cleared
         #excludesfile = /home/$USER/.gitignore_global
-[include]
-	path = /home/$USER/.gitconfig.local
+#[include]
+	#path = /home/$USER/.gitconfig.local
