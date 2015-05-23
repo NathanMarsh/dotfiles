@@ -27,6 +27,10 @@ elif [ "$currentshell" == "zsh" ]; then
   echo "source $HOME/.zshrc.local" >> "$dotfile" # Have a dotfile that only keeps local changes. Wont be committed to the repo. Is intentionally run last to override everything else. Is also untouched by all scripts here, so rerunning them is safe
 fi
 
+## git stuff ##
+touch "$HOME/.gitconfig.local"
+ln -s "$parentdir/.gitconfig" "$HOME"
+## end git stuff ##
 #ln -s "$parentdir/.vimrc" ~/.vimrc
 #./setup_vim.sh ## Not doing this till script is stable
 ./setup_backup.sh

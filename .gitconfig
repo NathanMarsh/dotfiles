@@ -1,17 +1,12 @@
-[user]
-        email = name@example.com
-        name = Me Mine
 [color]
         ui = auto
         #autocrlf = true #Should be set in windows
-        editor = vim
-        #fileMode = false
-        #pager = less -FMRiX #The X decides whether or not the pager clears after hitting q (check)
-        excludesfile = /home/$USER/.gitignore_global
 [push]
-        default = simple
+        #default = simple ## Git 1.7.11+
+        #default = current ## Git 1.7.10- ## Not as safe as simple, but its fine
 [pull]
-        default = simple
+        #default = simple ## Git 1.7.11+
+        #default = current ## Git 1.7.10- ## Not as safe as simple, but its fine
 [alias]
         dag = log --graph --format='format:%C(yellow)%h%C(reset) %C(blue)\"%an\" <%ae>%C(reset) %C(magenta)%cr%C(reset)%C(auto)%d%C(reset)%n%s' --date-order
         c = commit
@@ -25,4 +20,13 @@
         unignore = update-index --no-assume-unchanged
         currentBranch = rev-parse --abbrev-ref HEAD
         caa = commit -a --amend -C HEAD
-
+        message = log -1 --pretty=%B
+[core]
+	autocrlf = false
+	editor = vim
+	fileMode = false
+        #pager = less -FMRiX #The X decides whether or not the pager clears after hitting q (check)
+        #pager = less -+$LESS -R ## The lines displayed on the screen get cleared
+        #excludesfile = /home/$USER/.gitignore_global
+[include]
+	path = /home/$USER/.gitconfig.local
