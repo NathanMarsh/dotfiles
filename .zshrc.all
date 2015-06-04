@@ -115,34 +115,28 @@ mkcd() {
 
 
 git-temp() {
-tempdir=`mktemp -d`
-echo "$tempdir"
-
-
-/usr/bin/git diff-index --quiet HEAD
-ret=$?
-#echo "Dirt status: $ret"
-
-if [ $ret -eq 0 ]
-then
- echo "Its clean, proceeding";
-else
- echo "Its dirty, not proceeding";
- return
-fi
-
-commit_needed="HEAD"
-if [ ! -z "$1" ]
-then
-  commit_needed="$1"
-fi
-
-echo "Going with $commit_needed"
-
-#git --work-tree "$tempdir" checkout -f HEAD
-git --work-tree "$tempdir" checkout -f "$commit_needed"
-
-cd "$tempdir"
+        tdir=`mktemp -d` 
+        echo "$tdir"
+        commit_id=`/usr/bin/git rev-parse HEAD` 
+        tempdir="$tdir/$commit_id" 
+        mkdir "$tempdir"
+        /usr/bin/git diff-index --quiet HEAD
+        ret=$? 
+        if [ $ret -eq 0 ]
+        then
+                echo "Its clean, proceeding"
+        else
+                echo "Its dirty, not proceeding"
+                return
+        fi
+        commit_needed="HEAD" 
+        if [ ! -z "$1" ]
+        then
+                commit_needed="$1" 
+        fi
+        echo "Going with $commit_needed"
+        git --work-tree "$tempdir" checkout -f "$commit_needed"
+        cd "$tempdir"
 }
 
 alias ls='ls --color=auto'
