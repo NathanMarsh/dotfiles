@@ -5,7 +5,7 @@
 
     // Vintage mode setup ctrl-u, ctrl-b etc
     {"keys": ["ctrl+u"], "command": "scroll_lines", "args": {"amount": 40.0}, "context": [{ "key": "setting.command_mode" }]},
-    // {"keys": ["ctrl+b"], "command": "scroll_lines", "args": {"amount": 80.0}, "context": [{ "key": "setting.command_mode" }]},
+    {"keys": ["ctrl+b"], "command": "scroll_lines", "args": {"amount": 80.0}, "context": [{ "key": "setting.command_mode" }]},
     {"keys": ["ctrl+d"], "command": "scroll_lines", "args": {"amount": -40.0}, "context": [{"key": "setting.command_mode"}]},
     {"keys": ["ctrl+f"], "command": "scroll_lines", "args": {"amount": -80.0}, "context": [{"key": "setting.command_mode"}]},
     { "keys": ["g", "t"], "command": "next_view",
