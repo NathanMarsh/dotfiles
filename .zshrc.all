@@ -6,9 +6,15 @@ alias run-background='TMUX="" tmux -S /tmp/bg new -d "$@"'
 alias list_to_cs='awk -vORS=, "{ print $1 }" | sed "s/,$/\n/"'
 alias connected_ports='lsof -i'
 
+alias ga='git-annex'
+
 export EDITOR="vi"
 
 #alias jsonpretty="python -mjson.tool"
+
+# time head -c 100000000 /dev/zero | shasum -a 512 ## finds speed of sha 512
+#
+#
 
 
 alias gp='git push'
