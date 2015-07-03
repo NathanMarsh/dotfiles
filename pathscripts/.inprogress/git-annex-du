@@ -1,0 +1,6 @@
+#!/usr/bin/python
+
+path = "SHA-s33-000"
+annexfile = os.path.basename(os.readlink(path))
+size = annexfile.split("-")[1]
+print int(size[1:])
