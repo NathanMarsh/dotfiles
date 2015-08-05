@@ -182,3 +182,9 @@ bindkey "^[[B" down-line-or-beginning-search
 
 #export TZ=US/Pacific
 #export TZ="/usr/share/zoneinfo/US/Pacific"
+
+function latestTmuxHistory {
+  LOC="$HOME/tmuxOut"
+  cd "$LOC"
+  less `ls -Art | tail -n 1`
+}
