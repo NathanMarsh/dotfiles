@@ -186,5 +186,7 @@ bindkey "^[[B" down-line-or-beginning-search
 function latestTmuxHistory {
   LOC="$HOME/tmuxOut"
   cd "$LOC"
-  less `ls -Art | tail -n 1`
+  FNAME=$(ls -Art | tail -n 1)
+  FFULL="$LOC/$FNAME"
+  less "$FFULL"
 }

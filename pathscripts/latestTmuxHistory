@@ -1,0 +1,9 @@
+#!/bin/bash
+
+CUR="$PWD"
+LOC="$HOME/tmuxOut"
+cd "$LOC"
+FNAME=$(ls -Art | tail -n 1)
+FFULL="$LOC/$FNAME"
+cd "$CUR"
+less "$FFULL"
