@@ -35,6 +35,20 @@ function gitdiff {
     `$value`
 }
 
+function ga-temp {
+	root=`/usr/bin/git root`
+	echo "Repo root is at: $root"
+	mkcd
+	git init
+	git remote add origin "$root"
+	git fetch origin
+	git remote set-url --push origin INVALID
+	git checkout master
+	ga init INVALID
+	#ga dead web
+	ga sync
+}
+
 bindkey -M vicmd v edit-command-line
 
 #bindkey -v
