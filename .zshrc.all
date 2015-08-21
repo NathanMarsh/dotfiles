@@ -36,7 +36,7 @@ function gitdiff {
 }
 
 function ga-temp {
-	TEMPGAROOT="$HOME/.git-annex-temp"
+	TEMPGAROOT="$HOME/.git-annex-tracker"
 	root=`/usr/bin/git root`
 	rootname=$(basename "$root")
 	echo "Repo root is at: $root"
