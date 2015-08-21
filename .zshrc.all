@@ -36,8 +36,19 @@ function gitdiff {
 }
 
 function ga-temp {
+	TEMPGAROOT="$HOME/.git-annex-temp"
 	root=`/usr/bin/git root`
+	rootname=$(basename "$root")
 	echo "Repo root is at: $root"
+	echo "Root name is: $rootname"
+	tempga="$TEMPGAROOT/$rootname.git"
+	if [ -d "$tempga" ]
+	then
+		echo "Directory already exists"
+	else
+		echo "Directory doesn't exist"
+		git init --bare "$tempga"
+	fi
 	mkcd
 	git init
 	git remote add origin "$root"
@@ -45,7 +56,9 @@ function ga-temp {
 	git remote set-url --push origin INVALID
 	git checkout master
 	ga init INVALID
+	git remote add tracker "$tempga"
 	#ga dead web
+	ga dead .
 	ga sync
 }
 
