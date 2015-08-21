@@ -41,7 +41,7 @@ function ga-temp {
 	rootname=$(basename "$root")
 	echo "Repo root is at: $root"
 	echo "Root name is: $rootname"
-	tempga="$TEMPGAROOT/$rootname.git"
+	tempga="$TEMPGAROOT/tracker_$rootname.git"
 	if [ -d "$tempga" ]
 	then
 		echo "Directory already exists"
