@@ -59,6 +59,7 @@ function ga-temp {
 	git remote add tracker "$tempga"
 	#ga dead web
 	ga dead .
+	ga branch --unset-upstream
 	ga sync
 }
 
