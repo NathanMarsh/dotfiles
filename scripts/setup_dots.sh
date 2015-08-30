@@ -4,6 +4,7 @@ parentdir="$(dirname "$PWD")"
 
 #currentshell="$(basename $SHELL)"
 currentshell="zsh"
+zshenvfile="$HOME/.zshenv"
 
 if [ "$currentshell" == "bash" ]; then
   echo "Current shell is bash"
@@ -24,6 +25,10 @@ elif [ "$currentshell" == "zsh" ]; then
   echo "source $parentdir/.zshrc.mark" >> "$dotfile"
   echo "source $parentdir/.zshrc.all" >> "$dotfile"
   touch "$HOME/.zshrc.local"
+  sourceLocalString="source $HOME/.zshrc.local"
+  if ! grep -q "$sourceLocalString" "$zshenvfile"; then
+    echo "$sourceLocalString" >> "$zshenvfile"
+  fi
   echo "source $HOME/.zshrc.local" >> "$dotfile" # Have a dotfile that only keeps local changes. Wont be committed to the repo. Is intentionally run last to override everything else. Is also untouched by all scripts here, so rerunning them is safe
 fi
 
