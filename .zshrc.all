@@ -5,6 +5,7 @@ alias glsync='clear && watch "git pull && git add . && git commit -am Blah && gi
 alias run-background='TMUX="" tmux -S /tmp/bg new -d "$@"'
 alias list_to_cs='awk -vORS=, "{ print $1 }" | sed "s/,$/\n/"'
 alias connected_ports='lsof -i'
+alias ssh-password-only='ssh -o PreferredAuthentications=password -o PubkeyAuthentication=no'
 
 alias ga='git-annex'
 
