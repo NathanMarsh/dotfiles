@@ -38,5 +38,5 @@ fi
 #mv ~/.tmux.conf ~/.tmux.conf.bak
 #echo "Parent directory is $parentdir"
 
-ln -s "$parentdir/.tmux.conf" ~
+ln -s "$NADOT_HOME/.tmux.conf" ~
 touch ~/.tmux.local
