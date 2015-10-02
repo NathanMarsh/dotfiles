@@ -30,6 +30,7 @@ elif [ "$currentshell" == "zsh" ]; then
     echo "$sourceLocalString" >> "$zshenvfile"
   fi
   echo "source $HOME/.zshrc.local" >> "$dotfile" # Have a dotfile that only keeps local changes. Wont be committed to the repo. Is intentionally run last to override everything else. Is also untouched by all scripts here, so rerunning them is safe
+  echo "export NADOT_HOME=\"$parentdir\"" >> "$dotfile"
 fi
 
 ## git stuff ##
