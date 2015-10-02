@@ -25,7 +25,7 @@ mkcd
 git clone "$TMUX_GIT_PATH"
 cd tmux
 
-sudo apt-get install gcc libevent-dev libncurses5-dev make python-software-properties software-properties-common g++ autotools-dev automake
+sudo apt-get install gcc libevent-dev libncurses5-dev make python-software-properties software-properties-common g++ autotools-dev automake pkg-config
 sh autogen.sh
 ./configure
 make
