@@ -29,7 +29,7 @@ sudo apt-get install gcc libevent-dev libncurses5-dev make python-software-prope
 sh autogen.sh
 ./configure
 make
-#sudo make install
+sudo make install
 
 if [ -f ~/.tmux.conf ]; then
     echo "Trying to rename"
